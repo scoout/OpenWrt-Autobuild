@@ -63,7 +63,8 @@ cp -rf ../immortalwrt/package/libs/mbedtls package/libs/
 # OLED
 svn export -q https://github.com/NateLol/luci-app-oled/trunk package/new/luci-app-oled
 
-svn export -q https://github.com/koshev-msk/modemfeed/trunk package/new/modemfeed
+# Modemfeed
+svn export -q https://github.com/koshev-msk/modemfeed/trunk package/new/
 
 # OpenClash
 svn export -q https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/new/luci-app-openclash
