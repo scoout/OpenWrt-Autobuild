@@ -1,20 +1,20 @@
 #!/bin/sh
 
 # lang
-uci set luci.main.lang=zh_cn
+uci set luci.main.lang=en
 uci commit luci
 
 # timezone
-uci set system.@system[0].timezone=CST-8
-uci set system.@system[0].zonename=Asia/Shanghai
+uci set system.@system[0].timezone=WIB-7
+uci set system.@system[0].zonename=Asia/Jakarta
 # zram-swap
 uci set system.@system[0].zram_priority=100
 # ntp server
 uci -q delete system.ntp.server
-uci add_list system.ntp.server="ntp.aliyun.com"
-uci add_list system.ntp.server="time1.cloud.tencent.com"
-uci add_list system.ntp.server="time.ustc.edu.cn"
-uci add_list system.ntp.server="cn.pool.ntp.org"
+uci add_list system.ntp.server="time.indonesia.in"
+uci add_list system.ntp.server="ntp.indosat.com"
+uci add_list system.ntp.server="time3.jaring.id"
+uci add_list system.ntp.server="time.cloudflare.com"  # Cloudflare's NTP server
 uci commit system && service sysntpd reload
 
 # uhttpd
@@ -29,8 +29,26 @@ sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 uci commit dhcp
 
-# feed
-sed -i 's,downloads.openwrt.org,mirror.sjtu.edu.cn/openwrt,g' /etc/opkg/distfeeds.conf
+# xmm interface
+uci set network.l860GL=interface
+uci set network.l860GL.proto='xmm'
+uci set network.l860GL.device='/dev/ttyACM0'
+uci set network.l860GL.apn='internet'
+uci set network.l860GL.auth='auto'
+uci set network.l860GL.pdp='ipv4v6'
+uci add_list network.l860GL.dns='8.8.8.8'
+uci add_list network.l860GL.dns='8.8.4.4'
+uci commit network
+/etc/init.d/network restart
+
+#opkg
+sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
+echo "src/gz custom_generic https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/generic" >> /etc/opkg/customfeeds.conf
+echo "src/gz custom_arch https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/$(cat /etc/os-release | grep OPENWRT_ARCH | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
+
+# Fixing Bug
+sed -i "/config uhttpd 'main'/a list interpreter '.php=/usr/bin/php-cgi'" /etc/config/uhttpd
+sed -i "/config uhttpd 'main'/a option ubus_prefix '/ubus'" /etc/config/uhttpd
 
 ln -sf /sbin/ip /usr/bin/ip
 
