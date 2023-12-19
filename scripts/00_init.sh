@@ -30,6 +30,7 @@ __init_build_env() {
 }
 
 __init_feeds() {
+     echo 'src-git modemfeed https://github.com/koshev-msk/modemfeed.git' >> ./openwrt/feeds.conf.default
     ./openwrt/scripts/feeds update -a && ./openwrt/scripts/feeds install -a
 }
 
