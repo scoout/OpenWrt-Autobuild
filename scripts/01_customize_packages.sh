@@ -3,11 +3,16 @@
 # create directory
 [[ ! -d package/new ]] && mkdir -p package/new
 
-# Access Control
-cp -rf ../immortalwrt-luci/applications/luci-app-accesscontrol package/new/
+# diskman
+cp -rf ../immortalwrt-luci/applications/luci-app-diskman package/new/
 
-# arpbind
-cp -rf ../immortalwrt-luci/applications/luci-app-arpbind package/new/
+# passwall
+cp -rf ../immortalwrt-luci/applications/luci-app-passwall package/new/
+svn export -q https://github.com/xiaorouji/openwrt-passwall-packages.git package/new/openwrt-passwall-packages
+
+#badvpn & corkscrew
+cp -rf ../badvpn_corkscrew/badvpn package/new/
+cp -rf ../badvpn_corkscrew/corkscrew package/new/
 
 # AutoCore
 cp -rf ../immortalwrt/package/emortal/autocore package/new/
@@ -53,9 +58,6 @@ patch -d feeds/luci -p1 -i ../../../patches/fullconenat-luci.patch
 rm -rf ./package/libs/mbedtls
 cp -rf ../immortalwrt/package/libs/mbedtls package/libs/
 
-# OLED
-svn export -q https://github.com/NateLol/luci-app-oled/trunk package/new/luci-app-oled
-
 # OpenClash
 svn export -q https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/new/luci-app-openclash
 
@@ -76,12 +78,6 @@ cp -rf ../immortalwrt-luci/applications/luci-app-autoreboot package/new/
 #svn export -q https://github.com/coolsnowwolf/packages/trunk/net/shadowsocks-libev package/helloworld/shadowsocks-libev
 #rm -rf ./feeds/packages/net/{xray-core,shadowsocks-libev}
 
-# USB Printer
-cp -rf ../immortalwrt-luci/applications/luci-app-usb-printer package/new/
-
-# vlmcsd
-cp -rf ../immortalwrt-luci/applications/luci-app-vlmcsd package/new/
-cp -rf ../immortalwrt-packages/net/vlmcsd package/new/
 
 # Zerotier
 cp -rf ../immortalwrt-luci/applications/luci-app-zerotier package/new/
