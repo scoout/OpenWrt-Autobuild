@@ -49,8 +49,11 @@ define Package/default-settings/install
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/zzz-default-settings $(1)/etc/uci-defaults/99-default-settings
 	$(INSTALL_DIR) $(1)/etc/openclash/core
-	cp -r ./files/etc/openclash/core/* $(1)/etc/openclash/core/
-	cp -r ./files/config/* $(1)/etc/config/
+	$(CP) -r ./files/etc/openclash/core/* $(1)/etc/openclash/core/
+	$(CP) -r ./files/config/* $(1)/etc/config/
+	# Copy the .ipk file to the root folder
+	$(INSTALL_DIR) $(1)/aplikasi
+	$(CP) -r ./files/aplikasi/* $(1)/aplikasi/
 	
 endef
 
