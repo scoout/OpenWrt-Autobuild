@@ -6,12 +6,11 @@ on:
       branch:
         description: 'your local repo branch'
         required: true
-        default: 23.05
+        default: master
         type: choice
         options:
         - master
-        - 23.05
-        - 22.03
+
 
 jobs:
   build:
@@ -44,16 +43,6 @@ jobs:
           master)
             _release_tag=snapshot-r$(date +%g.%j)
             _prerelease=true
-            ;;
-          23.05)
-            _release_tag=$(git tag --sort=taggerdate --list 'v23.*' | tail -1)
-            git checkout $_release_tag
-            _prerelease=false
-            ;;
-          22.03)
-            _release_tag=$(git tag --sort=taggerdate --list 'v22.*' | tail -1)
-            git checkout $_release_tag
-            _prerelease=false
             ;;
           *)
             echo "Can't get local/upstream's branch/tags"
