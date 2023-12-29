@@ -41,6 +41,25 @@ uci add_list network.l860GL.dns='8.8.4.4'
 uci commit network
 /etc/init.d/network restart
 
+# Menambahkan aturan firewall
+uci -q batch <<EOF
+  set firewall.wan_l860GL=zone
+  set firewall.wan_l860GL.name='wan_l860GL'
+  set firewall.wan_l860GL.network='l860GL'
+  set firewall.wan_l860GL.input='REJECT'
+  set firewall.wan_l860GL.output='ACCEPT'
+  set firewall.wan_l860GL.forward='REJECT'
+
+  set firewall.wan_l860GL_m=forwarding
+  set firewall.wan_l860GL_m.src='wan_l860GL'
+  set firewall.wan_l860GL_m.dest='lan'
+
+  commit firewall
+EOF
+
+# Restart layanan firewall
+/etc/init.d/firewall restart
+
 #opkg
 sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
 echo "src/gz custom_generic https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/generic" >> /etc/opkg/customfeeds.conf
