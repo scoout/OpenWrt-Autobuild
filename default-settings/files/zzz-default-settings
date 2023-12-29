@@ -46,11 +46,7 @@ sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
 echo "src/gz custom_generic https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/generic" >> /etc/opkg/customfeeds.conf
 echo "src/gz custom_arch https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/$(cat /etc/os-release | grep OPENWRT_ARCH | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
 
-cd /aplikasi
 opkg remove --no-depends luci-app-pingcontrol
-sleep 1
-opkg install *.ipk
-rm -rf /aplikasi
 
 # Fixing Bug
 sed -i "/config uhttpd 'main'/a list interpreter '.php=/usr/bin/php-cgi'" /etc/config/uhttpd
