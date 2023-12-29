@@ -49,8 +49,6 @@ jobs:
             ;;
         esac
         case ${{ matrix.target }} in
-          sunxi-cortexa7)   _device=zeropi            ;;
-          sunxi-cortexa53)  _device=nanopi-neo2       ;;
           x86-64)           _device=x86-64            ;;
           *)                echo "wrong devices"      ;;
         esac
@@ -75,12 +73,6 @@ jobs:
         cp -L ../scripts/${{ steps.var.outputs.device }}_customization.sh .
         cp ../scripts/01_customize_packages.sh .
         /bin/bash ${{ steps.var.outputs.device }}_customization.sh
-
-    - name: Convert Translation
-      working-directory: ./openwrt
-      run: |
-        cp ../scripts/02_convert_translation.sh .
-        /bin/bash 02_convert_translation.sh
 
     - name: Add ACL
       working-directory: ./openwrt
