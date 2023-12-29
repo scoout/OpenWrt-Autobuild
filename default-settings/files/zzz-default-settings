@@ -48,6 +48,8 @@ echo "src/gz custom_arch https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/m
 
 opkg remove --no-depends luci-app-pingcontrol
 
+sed -i '/src-git modemfeed https:\/\/github.com\/koshev-msk\/modemfeed.git/d' /etc/opkg/customfeeds.conf
+
 # Fixing Bug
 sed -i "/config uhttpd 'main'/a list interpreter '.php=/usr/bin/php-cgi'" /etc/config/uhttpd
 sed -i "/config uhttpd 'main'/a option ubus_prefix '/ubus'" /etc/config/uhttpd
