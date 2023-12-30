@@ -66,7 +66,7 @@ echo "src/gz custom_generic https://raw.githubusercontent.com/lrdrdn/my-opkg-rep
 echo "src/gz custom_arch https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/$(cat /etc/os-release | grep OPENWRT_ARCH | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
 
 # remove modemfeed
-sed -i '/src-git modemfeed https:\/\/github.com\/koshev-msk\/modemfeed.git/d' /etc/opkg/distfeeds.conf
+sed -i '/openwrt_modemfeed/d' /etc/opkg/distfeeds.conf
 
 # Fixing Bug
 sed -i "/config uhttpd 'main'/a list interpreter '.php=/usr/bin/php-cgi'" /etc/config/uhttpd
