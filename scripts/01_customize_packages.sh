@@ -29,10 +29,6 @@ cp -rf ../lede/package/lean/ntfs3-mount package/new/
 # cpufreq
 cp -rf ../immortalwrt-luci/applications/luci-app-cpufreq package/new/
 
-# dnsmasq
-rm -rf package/network/services/dnsmasq
-cp -rf ../immortalwrt/package/network/services/dnsmasq package/network/services/
-
 # FullCone nat for nftables
 # patch kernel
 #cp -f ../lede/target/linux/generic/hack-6.1/952-add-net-conntrack-events-support-multiple-registrant.patch target/linux/generic/hack-6.1/
@@ -48,9 +44,7 @@ cp -rf ../immortalwrt/package/libs/libnftnl package/libs/
 # nftables
 rm -rf ./package/network/utils/nftables/
 cp -rf ../immortalwrt/package/network/utils/nftables package/network/utils/
-# firewall4
-rm -rf ./package/network/config/firewall4
-cp -rf ../immortalwrt/package/network/config/firewall4 package/network/config/
+
 # patch luci
 patch -d feeds/luci -p1 -i ../../../patches/fullconenat-luci.patch
 
@@ -72,12 +66,6 @@ cp -rf ../immortalwrt-luci/applications/luci-app-ramfree package/new/
 
 # Scheduled Reboot
 cp -rf ../immortalwrt-luci/applications/luci-app-autoreboot package/new/
-
-# ShadowsocksR Plus+
-#svn export -q https://github.com/fw876/helloworld/trunk package/helloworld
-#svn export -q https://github.com/coolsnowwolf/packages/trunk/net/shadowsocks-libev package/helloworld/shadowsocks-libev
-#rm -rf ./feeds/packages/net/{xray-core,shadowsocks-libev}
-
 
 # Zerotier
 cp -rf ../immortalwrt-luci/applications/luci-app-zerotier package/new/
