@@ -51,14 +51,12 @@ uci -q batch <<EOF
   set firewall.wan_l860GL.forward='REJECT'
 
   set firewall.wan_l860GL_m=forwarding
-  set firewall.wan_l860GL_m.src='wan_l860GL'
-  set firewall.wan_l860GL_m.dest='lan'
+  set firewall.wan_l860GL_m.src='lan'
+  set firewall.wan_l860GL_m.dest='wan_l860GL'
 
   commit firewall
 EOF
-
-# Restart layanan firewall
-/etc/init.d/firewall restart
+fw4 reload
 
 #opkg
 sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
