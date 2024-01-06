@@ -6,6 +6,9 @@
 # diskman
 cp -rf ../immortalwrt-luci/applications/luci-app-diskman package/new/
 
+# homeproxy
+cp -rf ../immortalwrt-luci/applications/luci-app-homeproxy package/new/
+
 # passwall
 cp -rf ../immortalwrt-luci/applications/luci-app-passwall package/new/
 svn export -q https://github.com/xiaorouji/openwrt-passwall-packages.git package/new/openwrt-passwall-packages
