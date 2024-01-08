@@ -46,8 +46,8 @@ CONFIG_PACKAGE_kmod-usb-hid=y
 CONFIG_PACKAGE_kmod-usb-net-rndis=y
 CONFIG_PACKAGE_kmod-usb-net-rtl8152-vendor=y
 CONFIG_PACKAGE_kmod-vmxnet3=y
-CONFIG_PACKAGE_libubox20230523=y
-CONFIG_PACKAGE_libblobmsg-json20230523=y
+CONFIG_PACKAGE_libubox202312041=y
+CONFIG_PACKAGE_libblobmsg-json202312041=y
 
 CONFIG_PACKAGE_kmod-iwlwifi=y
 CONFIG_PACKAGE_modeminfo=y
