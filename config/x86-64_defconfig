@@ -7,7 +7,26 @@ CONFIG_TARGET_ROOTFS_PARTSIZE=2048
 
 CONFIG_GRUB_TIMEOUT="1"
 CONFIG_LUCI_SRCDIET=y
-
+CONFIG_PACKAGE_dosfstools=y
+CONFIG_PACKAGE_kmod-fs-msdos=y
+CONFIG_PACKAGE_kmod-nls-cp932=y
+CONFIG_PACKAGE_kmod-nls-cp936=y
+CONFIG_PACKAGE_kmod-nls-cp950=y
+CONFIG_PACKAGE_exfat-mkfs=y
+CONFIG_PACKAGE_exfat-fsck=y
+CONFIG_PACKAGE_kmod-fs-ntfs=y
+CONFIG_PACKAGE_ntfs-3g-utils=y
+CONFIG_PACKAGE_ntfs-3g=y
+CONFIG_PACKAGE_kmod-fuse=y
+CONFIG_PACKAGE_libgcrypt=y
+CONFIG_PACKAGE_libgpg-error=y
+CONFIG_PACKAGE_mdadm=y
+CONFIG_PACKAGE_kmod-md-mod=y
+CONFIG_PACKAGE_kmod-md-raid0=y
+CONFIG_PACKAGE_kmod-md-raid10=y
+CONFIG_PACKAGE_kmod-md-raid1=y
+CONFIG_PACKAGE_kmod-md-raid456=y
+CONFIG_PACKAGE_kmod-md-linear=y
 CONFIG_PACKAGE_ath10k-firmware-qca9888=y
 CONFIG_PACKAGE_ath10k-firmware-qca988x=y
 CONFIG_PACKAGE_ath10k-firmware-qca9984=y
