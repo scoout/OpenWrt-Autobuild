@@ -17,7 +17,7 @@ cp -rf ../immortalwrt-luci/applications/luci-app-smartdns package/new/
 # passwall
 cp -rf ../immortalwrt-luci/applications/luci-app-passwall package/new/
 # svn export -q https://github.com/xiaorouji/openwrt-passwall-packages.git package/new/openwrt-passwall-packages
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/new/openwrt-passwall-packages
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/new/openwrt-passwall-packages
 #badvpn & corkscrew
 cp -rf ../badvpn_corkscrew/badvpn package/new/
 cp -rf ../badvpn_corkscrew/corkscrew package/new/
