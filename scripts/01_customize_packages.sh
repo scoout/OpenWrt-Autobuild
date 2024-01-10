@@ -9,7 +9,7 @@ cp -rf ../immortalwrt-luci/applications/luci-app-diskman package/new/
 # homeproxy
 cp -rf ../immortalwrt-luci/applications/luci-app-homeproxy package/new/
 # ftp
-cp -rf ../immortalwrt-luci/applications/luci-app-vsftd package/new/
+cp -rf ../immortalwrt-luci/applications/luci-app-vsftpd package/new/
 
 #smartdns
 cp -rf ../immortalwrt-luci/applications/luci-app-smartdns package/new/
