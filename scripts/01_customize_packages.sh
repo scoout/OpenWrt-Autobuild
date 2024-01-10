@@ -11,8 +11,8 @@ cp -rf ../immortalwrt-luci/applications/luci-app-homeproxy package/new/
 
 # passwall
 cp -rf ../immortalwrt-luci/applications/luci-app-passwall package/new/
-svn export -q https://github.com/xiaorouji/openwrt-passwall-packages.git package/new/openwrt-passwall-packages
-
+# svn export -q https://github.com/xiaorouji/openwrt-passwall-packages.git package/new/openwrt-passwall-packages
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/new/openwrt-passwall-packages
 #badvpn & corkscrew
 cp -rf ../badvpn_corkscrew/badvpn package/new/
 cp -rf ../badvpn_corkscrew/corkscrew package/new/
@@ -56,10 +56,11 @@ rm -rf ./package/libs/mbedtls
 cp -rf ../immortalwrt/package/libs/mbedtls package/libs/
 
 # OpenClash
-svn export -q https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/new/luci-app-openclash
+# svn export -q https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/new/luci-app-openclash
+git clone --depth=1 https://github.com/vernesong/OpenClash.git package/new/luci-app-openclash
 
 # Realtek RTL8125/8125B/8126A
-svn export -q https://github.com/sbwml/package_kernel_r8125/trunk package/new/r8125
+# svn export -q https://github.com/sbwml/package_kernel_r8125/trunk package/new/r8125
 
 # Realtek RTL8152/8153, RTL8192EU
 cp -rf ../immortalwrt/package/kernel/{r8152,rtl8192eu} package/new/
