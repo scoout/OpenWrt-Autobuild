@@ -28,7 +28,7 @@ jobs:
       id: var
       run: |
         case ${{ matrix.branch }} in
-          23.05)
+          main)
             _release_tag=$(git tag --sort=taggerdate --list 'v23.*' | tail -1)
             git checkout $_release_tag
             ;;
