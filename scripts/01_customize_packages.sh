@@ -11,6 +11,7 @@ cp -rf ../immortalwrt-luci/applications/luci-app-homeproxy package/new/
 # ftp
 cp -rf ../kid-packages/luci-app-vsftpd package/new/
 cp -rf ../kid-packages/luci-app-tinyfilemanager package/new/
+cp -rf ../kid-packages/vsftpd-alt package/new/
 #smartdns
 cp -rf ../immortalwrt-luci/applications/luci-app-smartdns package/new/
 
