@@ -13,15 +13,15 @@ cp -rf ../kid-packages/luci-app-vsftpd package/new/
 cp -rf ../kid-packages/luci-app-tinyfilemanager package/new/
 cp -rf ../kid-packages/vsftpd-alt package/new/
 #smartdns
-cp -rf ../immortalwrt-luci/applications/luci-app-smartdns package/new/
+# cp -rf ../immortalwrt-luci/applications/luci-app-smartdns package/new/
 
 # passwall
 cp -rf ../immortalwrt-luci/applications/luci-app-passwall package/new/
 # svn export -q https://github.com/xiaorouji/openwrt-passwall-packages.git package/new/openwrt-passwall-packages
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/new/openwrt-passwall-packages
 #badvpn & corkscrew
-cp -rf ../badvpn_corkscrew/badvpn package/new/
-cp -rf ../badvpn_corkscrew/corkscrew package/new/
+# cp -rf ../badvpn_corkscrew/badvpn package/new/
+# cp -rf ../badvpn_corkscrew/corkscrew package/new/
 
 # AutoCore
 cp -rf ../immortalwrt/package/emortal/autocore package/new/
