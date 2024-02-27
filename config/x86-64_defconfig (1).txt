@@ -7,6 +7,7 @@ CONFIG_LUCI_SRCDIET=y
 # CONFIG_PACKAGE_dnsmasq is not set
 CONFIG_PACKAGE_dosfstools=y
 CONFIG_PACKAGE_kmod-fs-msdos=y
+CONFIG_PACKAGE_kmod-macvlan=y
 CONFIG_PACKAGE_kmod-nls-cp932=y
 CONFIG_PACKAGE_kmod-nls-cp936=y
 CONFIG_PACKAGE_kmod-nls-cp950=y
