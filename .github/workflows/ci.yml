@@ -12,7 +12,6 @@ on:
         options:
         - master
         - 23.05
-        - 22.03
       targets:
         description: 'target devices'
         required: true
@@ -21,8 +20,6 @@ on:
         options:
         - "['meson-meson8b']"
         - "['x86-64']"
-        - "['meson-meson8b', 'sunxi-cortexa53', 'x86-64']"
-
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -70,8 +67,6 @@ jobs:
             ;;
         esac
         case ${{ matrix.target }} in
-          meson-meson8b)    _device=onecloud          ;;
-          sunxi-cortexa53)  _device=nanopi-neo2       ;;
           x86-64)           _device=x86-64            ;;
           *)                echo "wrong devices"      ;;
         esac
